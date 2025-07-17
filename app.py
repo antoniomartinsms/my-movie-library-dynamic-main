@@ -81,7 +81,10 @@ def add_review():
     # 4. Redireciona para a página principal
     return redirect(url_for("index"))
 
-
+@app.route('/download-csv')
+def download_csv():
+    path = 'movies.csv'  # caminho do arquivo no servidor
+    return send_file(path, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
